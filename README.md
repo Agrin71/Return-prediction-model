@@ -1,50 +1,49 @@
 # Return Prediction Model
 
-This project focuses on predicting the probability of product returns in a fashion retail dataset.
+In this project, I worked on a fashion retail dataset and tried to build a simple model to predict product returns.
 
-## Objective
+## Why I did this
 
-The goal is to estimate whether an order is likely to be returned, helping the business better understand return behavior and reduce potential losses.
+Returns are an important issue for retail businesses because they can affect profit, customer experience, and campaign performance.  
+So I wanted to see if the data could give any early signal about which orders might be more likely to be returned.
 
-## Approach
+## What I did
 
-A Logistic Regression model was built using customer and transaction data.
+I used customer and order information to build a basic Logistic Regression model.
 
-The process includes:
-- Data cleaning and preprocessing  
-- Feature engineering (such as margin, age group, and visit frequency)  
-- Encoding categorical variables  
-- Scaling numerical features  
-- Training and evaluating the model  
+Before training the model, I cleaned the data and prepared a few useful features, such as:
+- margin
+- age group
+- visit frequency
+- return flag
 
-The focus of this project was to build a simple and understandable baseline model rather than a highly complex one.
+I also encoded categorical variables and scaled the numerical columns so the model could work with them properly.
 
-## Results
+## Result
 
-The model achieved an accuracy of around **89%**.
+The model reached about **89% accuracy**.
 
-However, looking at the confusion matrix shows that the model mainly predicts the majority class (non-returned orders) and struggles to correctly identify returned orders. This is likely due to the dataset being imbalanced.
+At first, this looks strong, but the confusion matrix showed something important: the model mostly predicts non-returned orders and has difficulty detecting the returned ones.
+
+This probably happens because most orders in the dataset were not returned, so the data is imbalanced.
 
 ## Example Prediction
 
-To better understand how the model works in practice, a sample customer was tested.
+I tested the model with a sample customer.
 
-The model estimated that this order has around a **28% probability of being returned**, which indicates a relatively low to moderate level of risk.
+For that customer, the model estimated around a **28% probability of return**.  
+So I would read this as a low-to-medium return risk, not a very high one.
 
-## Key Insight
+## What I learned
 
-Even a simple model can provide useful insights into customer behavior.  
-This approach can help businesses take early actions, such as improving product descriptions or guiding customers more effectively.
+The main thing I learned is that accuracy alone is not enough to judge a model.
+
+Even though the accuracy is high, the confusion matrix gives a much clearer picture of what the model is actually doing.
+
+This helped me understand why evaluation is so important in machine learning.
 
 ## Limitations
 
-This is a baseline model, and there is still room for improvement.
+This is a simple first version of the model.
 
-The main limitation is the imbalance in the dataset, which affects the model’s ability to detect returned orders. Future improvements could include:
-- Handling class imbalance  
-- Trying different models  
-- Adding more relevant features  
-
-## Final Note
-
-This project demonstrates a basic but complete machine learning workflow, from data preparation to prediction, with a focus on clarity and practical understanding.
+The biggest limitation is the class imbalance in the dataset. If I continue improving this project, I would try balancing the data, testing different models, and adding more useful features.
